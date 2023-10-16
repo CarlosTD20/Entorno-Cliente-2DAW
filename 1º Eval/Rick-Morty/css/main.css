@@ -1,0 +1,25 @@
+#main{
+    text-align: center;
+}
+
+#dataPrinted{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.c-character{
+    margin: 10px;
+    border: 3px solid darkgray;
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+}
+
+.c-character:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,1);
+}
+
+.c-character img{
+    width: 250px;
+}

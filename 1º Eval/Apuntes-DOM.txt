@@ -1,0 +1,31 @@
+¿Qué es el DOM?
+
+El DOM es un estándar del W3C que representa una página web como un árbol de objetos.
+Permite a JavaScript acceder y manipular dinámicamente el contenido, la estructura y el estilo de un documento HTML.
+
+Interfaz de programación DOM:
+
+JavaScript puede acceder a elementos HTML como objetos en el DOM.
+Se utilizan propiedades y métodos para interactuar con estos elementos.
+Ejemplos de métodos incluyen getElementById, getElementsByTagName, y getElementsByClassName.
+
+Nodos DOM:
+
+Todo en un documento HTML es un nodo en el DOM.
+Tipos de nodos incluyen ELEMENT_NODE (elementos HTML), ATTRIBUTE_NODE (atributos HTML), TEXT_NODE (texto), y más.
+Los nodos tienen propiedades como nodeName, nodeValue, y nodeType.
+
+Modificar elementos del DOM:
+
+Se pueden cambiar los atributos y estilos de los elementos HTML.
+Los métodos createElement y createTextNode se utilizan para crear nuevos elementos y nodos de texto.
+Se pueden agregar nuevos elementos al DOM con appendChild o insertBefore.
+Los elementos existentes se eliminan con remove o removeChild.
+Se pueden reemplazar elementos con replaceChild.
+
+Clonar elementos HTML:
+
+El método cloneNode permite hacer copias de elementos y nodos.
+Se puede especificar si se deben clonar también los descendientes (profundamente) o no (superficialmente).
+
+El DOM es esencial para la creación de páginas web dinámicas y la interacción con el contenido HTML a través de JavaScript. Permite a los desarrolladores acceder y modificar elementos de la página web en tiempo real para crear experiencias interactivas y dinámicas.

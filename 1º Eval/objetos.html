@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        "use estrict"
+        let persona1={nombre:"Jorge",edad:"20",etnia:"negro"}
+        let persona2={nombre:"Sergi",edad:"23"}
+
+        function compareObjects(persona1, persona2){
+            if(persona1 === persona2){
+                return true;
+            } else{
+                return false
+            }
+        }
+        //Comparamos que tengas la misma cantidad de propiedades, es decir que tengan la misma longitud
+        function compareBojectsKey(persona1, persona2){
+            let keys1 = Object.keys(persona1).sort()
+            let keys2 = Object.keys(persona2).sort()
+
+            /*if(keys1.length != keys2.length)
+                return false*/
+
+            if (keys1.join() != keys2.join())
+                return false
+
+            //Join pasa el array a cadena de texto
+            //sort ordenar la cadena de texto alfabeticamente
+
+            /*for (propiedad of keys1){
+                if(persona1[propiedad] != persona2[propiedad]){
+                    return false
+                }
+            }*/
+            //Comprueba propiedad por proiedad del objecto
+        }
+
+        //console.log(persona1.nombre)
+        //console.log(compareObjects(persona1,persona2))
+        console.log(compareBojectsKey(persona1,persona2))
+    </script>
+</head>
+<body>
+<div id="container"></div>
+</body>
+</html>

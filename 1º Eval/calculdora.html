@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor"></div>
+    <button onclick="askNum()">Calculadora</button>
+</body>
+
+<script>
+  "use strict"
+
+   function askNum(){
+        let num = prompt("Dime un número...")
+        let texto="<b>Tabla de multiplicar del " + num + "</b>"
+        document.getElementById("contenedor").innerHTML=texto
+        table(num)
+   }
+
+    function table(num) {
+        let table="<table border radious=1>"
+        for ( let i = 0; i <= 10; ++i) {
+            table+= ("<tr> <td>"  + num + "</td> <td>"+ " x " + "</td> <td>" + i +"</td><td>"+ "= "+"</td><td>" + (parseInt(num)*parseInt(i)) + "</tr></td>")
+            /*
+                table+= `<tr>
+                            <td> ${num} </td>
+                            <td> x </td>
+                            <td> ${i} </td>
+                            <td> = </td>
+                            <td> ${n*i} </td>
+                        </tr>`
+            */
+        }
+
+        table+="</table>"
+        document.getElementById("contenedor").innerHTML+=table
+        /*El "+=" concatena lo que ya tienes puesto en el contenedor */
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fecha</title>
+</head>
+<body>
+    <div id="date"></div>
+</body>
+<script>
+    "use strict"
+    let fecha = new Date(); //Creamos la fecha nueva para poder obtener la fecha y aplicar las funciones get..()
+ 
+    let year= fecha.getFullYear() //Saca el año completo
+    let month = fecha.getMonth() //Saca el mes pero en numero luego tendremos que transformarlo a letra, en este caso usaremos una array "meses"
+    let day = fecha.getDate() //Saca el dia en concreto en número (1,2,3,4,5,6...)
+    let dayWeek = fecha.getDay() //Saca el dia de la semana pero en número luego que tranformalo en letra ="Lunes,Martes,Miercoles..." , en este caso usaremos una array "dias"
+
+    let meses=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
+    let dias=["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"]
+    
+    let texto="<b> Hoy es "+ dias[dayWeek] + " "+ day + " de " + meses[month] + " de " + year + "</b>"
+
+    //Forma de concatenar el texto
+
+    // let fecha = new Date();
+    // let meses=["Diciembre","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre"]
+    // let dias=["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"]
+
+
+    // let texto = `Hoy es ${dias[fecha.getDay()]}
+    //             día ${fecha.getDate()}
+    //             de ${meses[fecha.getMonth()]}
+    //             de ${fecha.getFullYear()}
+    //             `
+
+    console.log(texto)
+
+    document.getElementById("date").innerHTML=texto
+
+</script>
+</html>

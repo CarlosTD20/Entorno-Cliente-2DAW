@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calendario Mensual</title>
+    </head>
+    <body>
+        <div id="mes-año"></div>
+        <div id="container"></div>
+    </body>
+    <script>
+        "use strict"
+        
+        let fecha = new Date()
+        let meses=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
+        let dias=["L","M","X","J","V","S","D"]
+
+        //Calcular los días que tiene el mes
+        let lastDay = new Date(fecha.getFullYear(), fecha.getMonth()+1, 0)
+        //Buscamos el primer dia del mes y al tener asignado un 0, al no existir 0 en el mes no lleva al día de antes que es el último día del mes anterior 
+        console.log(lastDay)
+
+        //Mes y año
+        let texto = `<b>${meses[fecha.getMonth()]}
+                    ${fecha.getFullYear()}
+                    </b>`
+        document.getElementById("mes-año").innerHTML=texto
+        
+        //Establecemos que el primer dia de la semana será el 1
+        fecha.setDate("01")
+        let diaSemana=fecha.getDay()
+        if(diaSemana == 0){
+            diaSemana = 7
+        }
+
+        //Pintamos Calendario
+        fecha.setDate("01")
+
+        let table = "<table border radious=1> <tr>"
+            for (let i = 0; i <= 6; i++) {
+                table+= "<td>"  + dias[i] + "</td>"
+            }
+            table+="</tr> <tr>"
+
+        //Asginamos espacios en blanco a los días que no pertenecen a este mes
+        let blancos = diaSemana -1
+        console.log(blancos)
+
+        for (let i = 1; i <= blancos; i++) {
+            table+="<td>"             
+        }
+        for (let i = 1; i <= 7-blancos; i++) {
+            table+="<td>" + i   
+        }     
+        
+        /*Pintamos el resto de días, asignamos un contador para saber por que día vamos para poder meter el salto
+        de semana, con ese contador mientras hce el bucle pintando los días, con el if le decimos que cuando 
+        el día sea divisor de 7 sea == a 0 haga un <tr>, es decir un salto */
+        table+=" </tr> <tr>"
+            let celdas = 1;
+            for (let i = 7-blancos+1; i <= lastDay.getDate(); i++) {
+                table+="<td>" + i
+                if (celdas %7 == 0) {
+                    table+="</tr> <tr>"
+                }
+                celdas++
+            }
+            table+="</tr>"
+        table+="</table>"
+        document.getElementById("container").innerHTML+=table
+    </script>
+</html>

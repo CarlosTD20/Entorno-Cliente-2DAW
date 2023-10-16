@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplicar Vresión 2</title>
+</head>
+<body>
+    <div id="contenedor"></div>
+    <div id="table"></div>
+</body>
+
+<script>
+    "use estict"
+        let num1 = prompt("Dime un número:")
+        let num2 = prompt("Dime otro numero:")
+        let texto="<b>Tabla de multiplicar desde el número  " + num1 + " hasta el número " + num2 +"</b>"
+        document.getElementById("contenedor").innerHTML=texto
+
+        for (let i=num1; i<=num2; i++) {
+
+            let table="<table border radiouys=1>"
+                for ( let i = 0; i <= 10; ++i) {
+                    table+= ("<tr> <td>"  + num1 + "</td> <td>"+ " x " + "</td> <td>" + i +"</td><td>"+ "= "+"</td><td>" + (parseInt(num1)*parseInt(i)) + "</tr></td>")
+                }
+
+            table+="</table>"
+            document.getElementById("table").innerHTML=table
+        }
+</script>
+
+</html>
