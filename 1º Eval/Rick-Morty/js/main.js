@@ -9,25 +9,33 @@ personajes.results.forEach(c => {
     containerCharacter.className="c-character"
 
     let characterName = document.createElement("h1")
+    //characterName.innerHTML=c.name
+    let name=document.createTextNode(c.name)
+    characterName.appendChild(name)
+    //console.log(characterName)
+
     let characterId = document.createElement("p")
+    //characterId.innerHTML=c.id
+    let id = document.createTextNode(c.id)
+    characterId.appendChild(id)
+    let newID=c.id
+    //console.log(characterId)
 
     let characterImg = document.createElement("img")
-
-    characterName.innerHTML= c.name
-    console.log(characterName)
-
-    characterId.innerHTML= c.id
-    console.log(characterId)
-
     characterImg.src= c.image
-    console.log(characterImg)
+    //console.log(characterImg)
 
     containerCharacter.appendChild(characterName)
     containerCharacter.appendChild(characterId)
     containerCharacter.appendChild(characterImg)
 
     container.appendChild(containerCharacter)
+    containerCharacter.onclick=()=>getAllInformation(newID)
 })
+
+function getAllInformation(newID){
+    alert(newID)
+}
 
 /*
 let idname=0
