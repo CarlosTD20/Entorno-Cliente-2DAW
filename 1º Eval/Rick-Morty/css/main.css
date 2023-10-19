@@ -18,8 +18,28 @@
 
 .c-character:hover{
     box-shadow: 0 0 10px rgba(0,0,0,1);
+    cursor: cell;
 }
 
 .c-character img{
     width: 250px;
+}
+
+.c-information-character{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.c-information-character__close{
+    width: 80px;
+    background-color: red;
+    border-radius: 2px;
+    border-bottom: red;
+
+}
+
+.c-information-character__close:hover{
+    cursor: pointer;
 }
