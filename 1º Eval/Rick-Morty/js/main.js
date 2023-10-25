@@ -25,14 +25,9 @@ personajes.results.forEach(c => {
     characterImg.src= c.image
     //console.log(characterImg)
 
-    let moreinformation = document.createElement("button")
-    moreinformation.className="c-character--moreinformation"
-    let setmoreinformation = document.createTextNode("More Information")
-
     containerCharacter.appendChild(characterName)
     containerCharacter.appendChild(characterId)
     containerCharacter.appendChild(characterImg)
-    containerCharacter.appendChild(setmoreinformation)
 
     containerCharacter.addEventListener("click", function() {
         getAllInformation(newID);
