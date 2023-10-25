@@ -1,0 +1,22 @@
+.c-container{
+    display: flex;
+    flex-direction: row;
+    border: solid 1px black;
+}
+.c-product-img__printed{
+    width: 400px;
+    height: 400px;
+}
+
+#img-printed{
+    max-width: 350px;
+    max-height: 350px;
+}
+
+.c-product-list{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+}
+
