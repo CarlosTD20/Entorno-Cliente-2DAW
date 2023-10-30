@@ -23,7 +23,7 @@ let datos = [
 
 let selectTrimestre =document.getElementById("list-trimestre")
 let selectMonth =document.getElementById("list-months")
-
+let mes = document.getElementById("mes")
 
 datos.forEach( t=> {
     let option = document.createElement("option")
@@ -38,6 +38,8 @@ selectTrimestre.addEventListener("change", function (){
     let selectedId = parseInt(this.value);
     let getMonth = datos.find(p => p.id == selectedId)
 
+    selectMonth.innerHTML=""
+
      getMonth.meses.forEach(a=>{
          let optionMonth = document.createElement("option")
          optionMonth.value = a
@@ -45,10 +47,7 @@ selectTrimestre.addEventListener("change", function (){
 
          selectMonth.appendChild(optionMonth)
 
-         return optionMonth
-     })
-})
 
-selectMonth.addEventListener("click",function (optionMonth){
-console.log(optionMonth)
+     })
+    mes.innerHTML=`Mes seleccionado ${selectMonth.value}`
 })
