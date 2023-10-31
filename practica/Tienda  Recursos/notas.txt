@@ -1,0 +1,18 @@
+onload:
+    crear micarrito
+    crear criterios de ordenadción
+        gestionar la selececión
+
+    pintar articulos
+    boton para añadir al carrito (llamará a la función pon artículo en el carrito)
+    gestionar el click de la imagen carrito, seguir comprando y mandar pedido
+    (cuando pinchemos en el carrito llamara a la varibale miCarrito y a la función del carrito)
+
+
+    if (articulo != null) {
+    this.articulos.push(articulo)
+    } else {
+    unidades++
+    }
+
+    cuando saquemos el articulo por el id añadiremos la varible articulos.unidades=1

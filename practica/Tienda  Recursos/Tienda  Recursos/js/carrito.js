@@ -1,5 +1,7 @@
 class Carrito{
-	constructor(id){						
+	constructor(id){
+		this.id = id
+		this.articulos =[]
 	}
 						
 	anyadeArticulo(articulo){		
