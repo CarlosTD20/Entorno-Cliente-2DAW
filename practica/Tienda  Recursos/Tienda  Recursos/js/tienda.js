@@ -1,52 +1,43 @@
 	criterios=["Sin ordenar","Ascendente por precio", "Descendente por precio"]
 
+	window.onload=()=>{
+		creaListaCriterios()
+		verCarro()
+	}
+
 	function creaListaCriterios(){
 		let selectOrder = document.getElementById("criteriosOrdenacion")
 		criterios.forEach(p=>{
 			let criteriosName = document.createElement("option")
 			let text = document.createTextNode(p)
 			criteriosName.appendChild(text).valueOf(text)
-			//console.log(criteriosName.value)
 			selectOrder.appendChild(criteriosName)
+		})
 
-			selectOrder.addEventListener("change", function (){
-				let selectedValue = selectOrder.value
-				pintaArticulos(selectedValue)
-			})
+		selectOrder.addEventListener("change", function (){
+			let divPrincipal = document.getElementById("contenedor");
+
+			let listaArticulosOrdenada = listaArticulos.slice() // Clona la lista de artículos para no modificar la original
+
+			divPrincipal.innerHTML = "";
+
+			if (selectOrder.value== "Sin ordenar") {
+				listaArticulos.forEach(a => {
+					pintaArticulos(divPrincipal, a);
+				});
+			} else if (selectOrder.value == "Ascendente por precio") {
+				listaArticulosOrdenada.sort((a, b) => b.precio - a.precio).forEach(a => {
+					pintaArticulos(divPrincipal, a);
+				});
+			} else if (selectOrder.value == "Descendente por precio") {
+				listaArticulosOrdenada.sort((a, b) => a.precio - b.precio).forEach(a => {
+					pintaArticulos(divPrincipal, a);
+				});
+			}
 		})
 	}
 
-
-	function pintaArticulos(orden){
-		console.log(orden);
-		let divPrincipal = document.getElementById("contenedor");
-
-		// Clona la lista de artículos para no modificar la original
-		let listaArticulosOrdenada = listaArticulos.slice()
-
-		// Limpia el contenedor antes de agregar los nuevos elementos
-		divPrincipal.innerHTML = "";
-
-		if (orden === "Sin ordenar") {
-			// No se realiza ninguna ordenación
-			listaArticulos.forEach(a => {
-				agregarArticulo(divPrincipal, a);
-			});
-		} else if (orden === "Ascendente por precio") {
-			// Ordena la lista de artículos por precio de forma ascendente
-			listaArticulosOrdenada.sort((a, b) => b.precio - a.precio).forEach(a => {
-				agregarArticulo(divPrincipal, a);
-			});
-		} else if (orden === "Descendente por precio") {
-			// Ordena la lista de artículos por precio de forma descendente
-			listaArticulosOrdenada.sort((a, b) => a.precio - b.precio).forEach(a => {
-				agregarArticulo(divPrincipal, a);
-			});
-		}
-	}
-
-	// Función para agregar un artículo al contenedor
-	function agregarArticulo(contenedor, articulo) {
+	function pintaArticulos(contenedor, articulo){
 		let texto = `
         <div class="col">
             <div class="card">
@@ -58,28 +49,37 @@
                         <p class="card-text text-center">${articulo.precio}</p>
                     </b>
                 </div>
-                <button id="${articulo.codigo}" class="btn-success">Comprar</button>
+                <button id="${articulo.codigo}" onclick="ponArticuloEnCarrito(id)" class="btn-success">Comprar</button>
             </div>
         </div>`;
 		contenedor.innerHTML += texto;
 	}
-	
-	
-	function ponArticuloEnCarrito(){
-		
+
+	let carrito = new Carrito();
+
+	function ponArticuloEnCarrito(id){
+		let articulo = listaArticulos.find(p=>p.codigo == id)
+		carrito.anyadeArticulo(articulo)
 	}
 
 
-	function verCarro(){
-	
+	function verCarro() {
+		let carritoButton = document.getElementsByTagName("img")[0]; // Obtener la primera imagen
+
+		carritoButton.addEventListener("click", function () {
+			let carritoDialog= document.getElementById("miDialogo")
+			if (carrito.articulos.length === 0) {
+				alert("El carrito está vacío, añada algún producto");
+			} else {
+				carritoDialog.showModal()
+			}
+			document.getElementById("btnCierraDialog").addEventListener("click",function (){
+				carritoDialog.close()
+			})
+		})
+
 	}
 
 	function efectuaPedido(){
 	
 	}
-
-	window.onload=()=>{
-		creaListaCriterios()
-		pintaArticulos()
-	}
-
