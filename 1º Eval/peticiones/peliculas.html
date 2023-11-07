@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getPeliculas()">Ver todas las peliculas</button>
+    <button onclick="getPeliculasID()">Ver pelicula en espcifico</button>
+    <button onclick="deletePeliculasID()">Borrar pelicula</button>
+    <button onclick="postPeliculas()">Insertar Pelicula</button>
+    <button onclick="putPeliculas()">Modificar pelicula</button>
+    <div id="peliculas"></div>
+</body>
+</html>
+<script>
+    let div = document.getElementById("peliculas")
+
+    function getPeliculas(){
+        let xhr = new XMLHttpRequest()
+        let url = 'http://localhost:3000/peliculas'
+
+        xhr.open('get',url)
+        xhr.responseType='json'
+        xhr.send()
+
+        xhr.onload= ()=> {
+            if(xhr.status == 200) {
+                let peliculas = xhr.response
+                console.log(peliculas)
+                div.innerHTML = ''
+                peliculas.forEach(peliculas => div.innerHTML += `<p> ${peliculas.title} </p>`)
+            } else {
+                div.innerHTML=`Error: ${xhr.statusText} CODIGO: ${xhr.status}`
+            }
+        }
+        //xhr.onerror= ()=> console.log("Error...") //document.body.innerHTML=`ERROR: ${xhr.statusText} CODIGO: ${xhr.status}`
+    }
+
+    function getPeliculasID(){
+        let id= prompt('Dime id peliculas...')
+        let xhr = new XMLHttpRequest()
+        let url = `http://localhost:3000/peliculas/${id}`
+
+        xhr.open('get',url)
+        xhr.responseType='json'
+        xhr.send()
+
+        xhr.onload= ()=> {
+            if(xhr.status == 200) {
+                let peliculas = xhr.response
+                div.innerHTML = ''
+                div.innerHTML += `<p> ${peliculas.title} </p>`
+            } else {
+                div.innerHTML=`Error: ${xhr.statusText} CODIGO: ${xhr.status}`
+            }
+        }
+        //xhr.onerror= ()=> console.log("Error...") //document.body.innerHTML=`ERROR: ${xhr.statusText} CODIGO: ${xhr.status}`
+    }
+
+    function deletePeliculasID(){
+        let id= prompt('Dime id peliculas...')
+        let xhr = new XMLHttpRequest()
+        let url = `http://localhost:3000/peliculas/${id}`
+
+        xhr.open('delete',url)
+        xhr.responseType='json'
+        xhr.send()
+
+        xhr.onload= ()=> {
+            if(xhr.status == 200) {
+                let peliculas = xhr.response
+                div.innerHTML = ''
+                div.innerHTML += `<p> Pelicula con id: ${id} borrada </p>`
+            } else {
+                div.innerHTML=`Error: ${xhr.statusText} CODIGO: ${xhr.status}`
+            }
+        }
+        //xhr.onerror= ()=> console.log("Error...") //document.body.innerHTML=`ERROR: ${xhr.statusText} CODIGO: ${xhr.status}`
+    }
+
+    function postPeliculas(){
+        let xhr = new XMLHttpRequest()
+        let url = 'http://localhost:3000/peliculas'
+
+        let pelicula={
+            'id':parseInt(prompt('Dime el id: ')),
+            'title': prompt('Dime el titulo: '),
+            'year': parseInt(prompt('Dime el year: ')),
+            'runtime': parseInt(prompt('Dime la duración: '))
+        }
+        /*
+        let pelicula={
+            'id':21,
+            'title':'DAW Practice 2',
+            'year':2023,
+            'runtime':128
+        }*/
+
+        xhr.open('POST',url)
+        xhr.responseType='json'
+        xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        xhr.send(JSON.stringify(pelicula))
+
+        xhr.onload= ()=> {
+            if(xhr.status == 200 || xhr.status == 201) {
+                div.innerHTML = ""
+                div.innerHTML += `<p> Pelicula ${pelicula.title} insertada </p>`
+            } else {
+                div.innerHTML=`Error: ${xhr.statusText} CODIGO: ${xhr.status}`
+            }
+        }
+        //xhr.onerror= ()=> console.log("Error...") //document.body.innerHTML=`ERROR: ${xhr.statusText} CODIGO: ${xhr.status}`
+    }
+
+    function putPeliculas(){
+        let id= prompt('Dime id de la pelicula...')
+        let xhr = new XMLHttpRequest()
+        let url = `http://localhost:3000/peliculas/${id}`
+
+        let pelicula= {
+            'id': id,
+            'title': prompt('Dime titulo nuevo: '),
+            'year': parseInt(prompt('Dime el año nuevo: ')),
+            'runtime': parseInt(prompt('Dime la nueva duración: '))
+        }
+
+        xhr.open('PUT',url)
+        xhr.responseType='json'
+        xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        xhr.send(JSON.stringify(pelicula))
+
+        xhr.onload= ()=> {
+            if(xhr.status == 200 || xhr.status == 201) {
+                div.innerHTML = ""
+                div.innerHTML += `<p> Pelicula ${pelicula.title} modificada </p>`
+            } else {
+                div.innerHTML=`Error: ${xhr.statusText} CODIGO: ${xhr.status}`
+            }
+        }
+        //xhr.onerror= ()=> console.log("Error...") //document.body.innerHTML=`ERROR: ${xhr.statusText} CODIGO: ${xhr.status}`
+    }
+</script>
