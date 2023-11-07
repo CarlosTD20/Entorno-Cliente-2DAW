@@ -76,10 +76,15 @@
 			document.getElementById("btnCierraDialog").addEventListener("click",function (){
 				carritoDialog.close()
 			})
+
+			efectuaPedido(carritoDialog)
 		})
 
 	}
 
-	function efectuaPedido(){
-	
+	function efectuaPedido(carritoDiallog){
+		document.getElementById("btnEfectuaPedido").addEventListener("click",function (){
+			carritoDiallog.close()
+			console.log(this.carrito.constructor)
+		})
 	}

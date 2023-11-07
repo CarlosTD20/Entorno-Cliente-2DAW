@@ -18,12 +18,25 @@ class Carrito{
 	}
 				
 	borraArticulo(codigo){
-		console.log(codigo)
+		let index = this.articulos.findIndex(a => a.codigo === codigo);
+		if (index !== -1){
+			this.articulos.splice(index,1)
+		}
+		this.verCarrito()
 	}
 
 	modificaUnidades(codigo, n) {
-		let articulo = this.articulos.find(articulo => articulo.codigo === codigo) 
+		console.log(n)
+		let articulo = this.articulos.find(articulo => articulo.codigo === codigo)
+
+		if (n == 1){
+			articulo.cantidad += 1
+		} else if (n == -1){
+			articulo.cantidad += -1
+		}
+		this.verCarrito(articulo)
 	}
+
 	verCarrito(articulo) {
 		let tabla = document.getElementById("tablaCarrito") 
 		tabla.querySelector("tbody").innerHTML = ""  // Limpiar la tabla
@@ -60,11 +73,27 @@ class Carrito{
 			let columnaBOTONES = document.createElement("td")
 
 			let masCantidadBOTON = document.createElement("button")
+			masCantidadBOTON.textContent="+"
+			masCantidadBOTON.value=+1
+			columnaBOTONES.appendChild(masCantidadBOTON)
+			masCantidadBOTON.addEventListener("click", function (){
+				carrito.modificaUnidades(articulo.codigo,masCantidadBOTON.value)
+			})
 
-			let menosCantidadBOTON = document.createElement("button")
+			let menosCantidadBOTON= document.createElement("button")
+			menosCantidadBOTON.textContent="-"
+			menosCantidadBOTON.value=-1
+			columnaBOTONES.appendChild(menosCantidadBOTON)
+			menosCantidadBOTON.addEventListener("click", function (){
+				carrito.modificaUnidades(articulo.codigo,menosCantidadBOTON.value)
+			})
 
 			let borrarBOTON = document.createElement("button")
-
+			borrarBOTON.textContent="BORRAR"
+			columnaBOTONES.appendChild(borrarBOTON)
+			borrarBOTON.addEventListener("click", function (){
+				carrito.borraArticulo(articulo.codigo)
+			})
 
 			fila.appendChild(columIMG) 
 			fila.appendChild(columNAME) 
@@ -72,6 +101,7 @@ class Carrito{
 			fila.appendChild(colunPRECIO) 
 			fila.appendChild(columCANTIDAD) 
 			fila.appendChild(columnaTOTAL)
+			fila.appendChild(columnaBOTONES)
 
 			tabla.querySelector("tbody").appendChild(fila) 
 		}) 
