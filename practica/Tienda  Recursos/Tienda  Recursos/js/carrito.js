@@ -1,6 +1,6 @@
 class Carrito{
 	constructor(id){
-		this.id = id
+		this.id = 28
 		this.articulos =[]
 	}
 
@@ -14,7 +14,7 @@ class Carrito{
 			this.articulos.push(articulo) 
 		}
 
-		this.verCarrito(articulo) 
+		this.verCarrito()
 	}
 				
 	borraArticulo(codigo){
@@ -28,17 +28,21 @@ class Carrito{
 	modificaUnidades(codigo, n) {
 		console.log(n)
 		let articulo = this.articulos.find(articulo => articulo.codigo === codigo)
-
-		if (n == 1){
+		if (articulo.cantidad <=1){
+			this.borraArticulo(codigo)
+		} else if (n == 1){
 			articulo.cantidad += 1
 		} else if (n == -1){
 			articulo.cantidad += -1
 		}
-		this.verCarrito(articulo)
+		this.verCarrito()
 	}
 
-	verCarrito(articulo) {
-		let tabla = document.getElementById("tablaCarrito") 
+	verCarrito() {
+
+		let tabla = document.getElementById("tablaCarrito")
+		let spanTOTAL = document.getElementById("total")
+		let sumaTotal = 0
 		tabla.querySelector("tbody").innerHTML = ""  // Limpiar la tabla
 
 		this.articulos.forEach((articulo) => {
@@ -74,6 +78,7 @@ class Carrito{
 
 			let masCantidadBOTON = document.createElement("button")
 			masCantidadBOTON.textContent="+"
+			masCantidadBOTON.className="btn-primary"
 			masCantidadBOTON.value=+1
 			columnaBOTONES.appendChild(masCantidadBOTON)
 			masCantidadBOTON.addEventListener("click", function (){
@@ -82,6 +87,7 @@ class Carrito{
 
 			let menosCantidadBOTON= document.createElement("button")
 			menosCantidadBOTON.textContent="-"
+			menosCantidadBOTON.className="btn-warning"
 			menosCantidadBOTON.value=-1
 			columnaBOTONES.appendChild(menosCantidadBOTON)
 			menosCantidadBOTON.addEventListener("click", function (){
@@ -90,6 +96,7 @@ class Carrito{
 
 			let borrarBOTON = document.createElement("button")
 			borrarBOTON.textContent="BORRAR"
+			borrarBOTON.className="btn-danger"
 			columnaBOTONES.appendChild(borrarBOTON)
 			borrarBOTON.addEventListener("click", function (){
 				carrito.borraArticulo(articulo.codigo)
@@ -103,30 +110,10 @@ class Carrito{
 			fila.appendChild(columnaTOTAL)
 			fila.appendChild(columnaBOTONES)
 
-			tabla.querySelector("tbody").appendChild(fila) 
+			tabla.querySelector("tbody").appendChild(fila)
+
+			sumaTotal += articulo.precio * articulo.cantidad
+			spanTOTAL.textContent = sumaTotal
 		}) 
 	}
-
-	/*
-	this.articulos.forEach(a =>{
-			let tabla = document.querySelector("tbody")
-
-			let texto = `
-				<tr>
-					<th><img src="assets/${a.codigo}.jpg" class="imgCarrito"/></th>
-					<th>${a.codigo}</th>
-					<th>${a.descripcion}</th>
-					<th>${a.precio}</th>
-					<th></th>
-					<th></th>
-					<th>
-						<button onclick="this.modificaUnidades()">-</button>
-						<button onclick="this.modificaUnidades()">+</button>
-						<button onclick="this.borraArticulo()">Borrar</button>
-					</th>
-				</tr>` 
-			tabla.innerHTML += texto
-		})
-		console.log(this.articulos)
-	*/
 }
