@@ -28,7 +28,7 @@ class Carrito{
 	modificaUnidades(codigo, n) {
 		console.log(n)
 		let articulo = this.articulos.find(articulo => articulo.codigo === codigo)
-		if (articulo.cantidad <=1){
+		if (articulo.cantidad == 0){
 			this.borraArticulo(codigo)
 		} else if (n == 1){
 			articulo.cantidad += 1
@@ -123,9 +123,6 @@ class Carrito{
 				tabla.querySelector("tbody").appendChild(fila)
 
 				sumaTotal += articulo.precio * articulo.cantidad
-
-
-
 			})
 			spanTOTAL.textContent = sumaTotal
 		}
