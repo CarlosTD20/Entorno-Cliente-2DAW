@@ -49,6 +49,10 @@
 						<button id="${a.codigo}" onclick="ponArticuloEnCarrito(id)" class="btn-success">Comprar</button>
 					</div>
 				</div>`;
+			// document.querySelector("button").addEventListener("click",function (){
+			// 	console.log("hiii")
+			// 	ponArticuloEnCarrito(a.codigo)
+			// })
 			divPrincipal.innerHTML += texto;
 		})
 	}
