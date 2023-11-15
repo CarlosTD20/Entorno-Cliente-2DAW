@@ -28,12 +28,14 @@ class Carrito{
 	modificaUnidades(codigo, n) {
 		console.log(n)
 		let articulo = this.articulos.find(articulo => articulo.codigo === codigo)
-		if (articulo.cantidad == 0){
-			this.borraArticulo(codigo)
-		} else if (n == 1){
+		if (n == 1){
 			articulo.cantidad += 1
 		} else if (n == -1){
-			articulo.cantidad += -1
+			 if (articulo.cantidad <= 1){
+				 this.borraArticulo(codigo)
+			 } else {
+				 articulo.cantidad += -1
+			 }
 		}
 		this.verCarrito()
 	}
@@ -45,12 +47,6 @@ class Carrito{
 		let sumaTotal = 0
 
 		tabla.querySelector("tbody").innerHTML = ""  // Limpiar la tabla
-
-		document.getElementById("btnEfectuaPedido").addEventListener("click",function (){
-			tabla.innerHTML=""
-			sumaTotal = 0;
-			spanTOTAL.textContent = sumaTotal;
-		})
 
 		if (this.articulos.length === 0) {
 			spanTOTAL.textContent = 0;
