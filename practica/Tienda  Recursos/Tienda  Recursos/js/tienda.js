@@ -34,8 +34,9 @@
 	function pintaArticulos(articulosList){
 		let divPrincipal = document.getElementById("contenedor");
 		divPrincipal.innerHTML = "";
+		let texto = ""
 		articulosList.forEach(a=>{
-			let texto = `
+			 texto += `
 				<div class="col">
 					<div class="card">
 						<img src="assets/${a.codigo}.jpg" class="card-img-top"/>
@@ -46,15 +47,21 @@
 								<p class="card-text text-center">${a.precio}</p>
 							</b>
 						</div>
-						<button id="${a.codigo}" onclick="ponArticuloEnCarrito(id)" class="btn-success">Comprar</button>
+						<button id=${a.codigo}   class="btn-success">Comprar</button>
 					</div>
 				</div>`;
-			// document.querySelector("button").addEventListener("click",function (){
-			// 	console.log("hiii")
-			// 	ponArticuloEnCarrito(a.codigo)
-			// })
+
+			})
 			divPrincipal.innerHTML += texto;
-		})
+
+			let buttonArticulo = document.getElementsByClassName("btn-success")
+
+			Array.from(buttonArticulo).forEach(b=>{
+				b.addEventListener("click", function (){
+					console.log(b.id)
+					ponArticuloEnCarrito(b.id)
+				})
+			})
 	}
 
 
@@ -88,5 +95,6 @@
 		document.getElementById("btnEfectuaPedido").addEventListener("click",function (){
 			carritoDiallog.close()
 			console.log(JSON.stringify(carrito))
+			carrito = new Carrito()
 		})
 	}
