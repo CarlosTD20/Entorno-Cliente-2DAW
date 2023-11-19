@@ -10,12 +10,12 @@
 <script>
     let url = 'http://localhost:3000/'
 
-    function get(entidad) {
+    function get(entidad, id) {
         // Return a new promise.
         return new Promise(function(resolve, reject) {
             // Do the usual XHR stuff
             var req = new XMLHttpRequest();
-            req.open('GET', url+ entidad);
+            req.open('GET', url + entidad + '/' + id);
             req.responseType='json'
             req.onload = function() {
                 if (req.status == 200) {
@@ -33,11 +33,15 @@
         });
     }
 
-    let entidad = prompt('Dime la entidad')
-    get(entidad)
-        .then(respuesta => {
-            respuesta.forEach(r=>console.log(r))
-        })
+    let entidad = prompt('Dime la entidad: ')
+    let id = prompt('El id de la película: ')
+    // get(entidad, id)
+    //     .then(respuesta => get('actores', respuesta.IdActor).then(respuesta => console.log(respuesta)))
+    //     .catch(error => console.log(error))
+
+    get(entidad, id)
+        .then(respuesta => get('actores', respuesta.IdActor))
+        .then(respuesta => console.log(respuesta.title))
         .catch(error => console.log(error))
 
 
