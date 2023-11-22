@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    let url='http://localhost:3000/peliculas/';
+    let urlId='http://localhost:3000/peliculas/2';
+    let urlIdactores='http://localhost:3000/actores/';
+
+    // //Fetch basico sin comporbar  errores--> tipico de web
+    // fetch(url).then(response=>response.json())
+    //           .then(datos=>console.log(datos))
+    //
+    // //Fetch mirando que es response
+    // fetch(url).then(response=>{
+    //     console.log(response)
+    //     return response.json()
+    // })
+    //     .then(datos=>console.log(datos))
+    //
+    // //Fetch basico sin comporbar  errores--> tipico de web
+    // fetch(urlId).then(response=> {
+    //                 if (response.ok){
+    //                     return response.json()
+    //                 } else{
+    //                     throw new Error('Ha habido un ERROR ' + response.status)
+    //                 }
+    //             })
+    //             .then(datos=>console.log(datos))
+    //             .catch(e=> console.log(e))
+
+    // //Fetch asincrono
+    // async function get(url){
+    //
+    //     let response  = await fetch(url)
+    //     if (response.ok){
+    //         let datos = await response.json()
+    //         console.log(datos)
+    //     } else {
+    //         console.log('Error: ' + response.status)
+    //     }
+    // }
+    //
+    // get(url)
+
+    //
+    // //Fetch asincrono
+    // async function get(url){
+    //
+    //     let response  = await fetch(url)
+    //     if (response.ok){
+    //         let datos = await response.json()
+    //         console.log(datos)
+    //
+    //         let response2 = await fetch(urlIdactores + datos.IdActor)
+    //         if (response2.ok){
+    //             datos = await response2.json()
+    //             console.log(datos)
+    //         } else {
+    //             console.log('Error actor: ' + response2.status)
+    //         }
+    //
+    //     } else {
+    //         console.log('Error pelicula: ' + response.status)
+    //     }
+    // }
+    //
+    // get(urlId)
+
+
+    //Fetch asincrono
+    async function get(url){
+        try{
+            let response = await fetch(url)
+            if (!response.ok)
+                throw new Error('Error pelicula: ' + response.status)
+            let datos=await response.json()
+            console.log(datos)
+
+            let response2 = await fetch(urlIdactores + datos.IdActor)
+            if (!response2.ok)
+                throw new Error('Error actores: ' + response2.status)
+            datos=await response2.json()
+            console.log(datos)
+
+        } catch (error){
+            console.log(error)
+        }
+    }
+
+    get(urlId)
+
+</script>
+</html>
