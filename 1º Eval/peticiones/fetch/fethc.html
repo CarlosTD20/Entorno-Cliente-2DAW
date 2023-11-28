@@ -80,26 +80,26 @@
 
 
     // Fetch asincrono anidadon peticiones con try catch
-    async function get(url){
-        try{
-            let response = await fetch(url)
-            if (!response.ok)
-                throw new Error('Error pelicula: ' + response.status)
-            let datos = await response.json()
-            console.log(datos)
+    // async function get(url){
+    //     try{
+    //         let response = await fetch(url)
+    //         if (!response.ok)
+    //             throw new Error('Error pelicula: ' + response.status)
+    //         let datos = await response.json()
+    //         console.log(datos)
+    //
+    //         let response2 = await fetch(urlIdactores + datos.IdActor)
+    //         if (!response2.ok)
+    //             throw new Error('Error actores: ' + response2.status)
+    //         datos=await response2.json()
+    //         console.log(datos)
+    //
+    //     } catch (error){
+    //         console.log(error)
+    //     }
+    // }
 
-            let response2 = await fetch(urlIdactores + datos.IdActor)
-            if (!response2.ok)
-                throw new Error('Error actores: ' + response2.status)
-            datos=await response2.json()
-            console.log(datos)
-
-        } catch (error){
-            console.log(error)
-        }
-    }
-
-    get(urlId)
+    // get(urlId)
 
     // fetch(url).then(diego => diego.json())
     //     .then(diego => console.log(diego))
@@ -132,5 +132,53 @@
     // }
     //
     // get(url)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    async function getCharacters(id){
+        try {
+            let datos = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
+            if (!datos.ok)
+                throw new Error("Error: " + datos.status + datos.statusText)
+            datos = await datos.json()
+            console.log(datos)
+            let location = datos.location.url
+
+            let datos2 =  await fetch(location)
+            if (!datos2.ok)
+                throw new Error("Error: " + datos.status + datos.statusText)
+            datos2 = await datos2.json()
+            console.log(datos2)
+        } catch (error){
+            console.log(error)
+        }
+    }
+
+    let id = prompt('Dime el id: ')
+    getCharacters(id)
 </script>
 </html>

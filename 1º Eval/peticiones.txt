@@ -1,0 +1,6 @@
+let xhr = new XMLHttpRquest()
+let url = ´http://localhost:3000/peliculas´
+xhr.open(´get´,url)
+xhr.send()
+xhr.onload= ()=> document.body.innerHTML= xhr.response
+xhr.error = ()=> docuemnt.body.innerHTML = ´ERROR: ${XHR.STATUSteXT} codigo:${xhr.status}´
