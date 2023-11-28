@@ -8,7 +8,9 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="container">
 
+    </div>
 </body>
 <script>
     let url='http://localhost:3000/peliculas/';
@@ -37,7 +39,7 @@
     //             .then(datos=>console.log(datos))
     //             .catch(e=> console.log(e))
 
-    // //Fetch asincrono
+    // //Fetch asincrono comprobando errores
     // async function get(url){
     //
     //     let response  = await fetch(url)
@@ -52,7 +54,7 @@
     // get(url)
 
     //
-    // //Fetch asincrono
+    // //Fetch asincrono anidadon peticiones
     // async function get(url){
     //
     //     let response  = await fetch(url)
@@ -76,13 +78,14 @@
     // get(urlId)
 
 
-    //Fetch asincrono
+
+    // Fetch asincrono anidadon peticiones con try catch
     async function get(url){
         try{
             let response = await fetch(url)
             if (!response.ok)
                 throw new Error('Error pelicula: ' + response.status)
-            let datos=await response.json()
+            let datos = await response.json()
             console.log(datos)
 
             let response2 = await fetch(urlIdactores + datos.IdActor)
@@ -98,5 +101,36 @@
 
     get(urlId)
 
+    // fetch(url).then(diego => diego.json())
+    //     .then(diego => console.log(diego))
+    //     .catch(error => console.log(error))
+
+
+    // async function get(url){
+    //     try {
+    //         let response = await fetch(url)
+    //         if (!response.ok)
+    //             throw new Error("Error en la petición")
+    //         datos = await response.json()
+    //         console.log(datos)
+    //
+    //         datos.forEach( d => {
+    //             let container = document.getElementById("container")
+    //             let continer2 = document.createElement("div")
+    //
+    //             let title = document.createTextNode(d.title)
+    //             let year = document.createTextNode(d.year)
+    //
+    //             continer2.appendChild(title)
+    //             continer2.appendChild(year)
+    //
+    //             container.appendChild(continer2)
+    //         })
+    //     } catch (error){
+    //         console.log(error)
+    //     }
+    // }
+    //
+    // get(url)
 </script>
 </html>

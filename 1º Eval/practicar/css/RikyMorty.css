@@ -1,0 +1,51 @@
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #1e7e34;
+}
+
+.c-card-character{
+    width: 200px;
+    height: 200px;
+    background-color: #ffffff; /* Color de fondo azul */
+    border: 2px solid #000000; /* Borde azul más oscuro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin: 20px; /* Margen exterior */
+    padding: 20px; /* Relleno interno */
+    text-align: center;
+    font-weight: bold;
+}
+
+.c-card-character:hover{
+    box-shadow: 0 0 20px rgba(128, 0, 128);
+    cursor: pointer;
+}
+
+.c-card-character img{
+    width: 100%
+}
+
+.contenedorPricipal{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contenedorIMG{
+    width: 50%;
+}
+
+.contenedorTEXTO{
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.contenedorIMG img{
+    width: 100%;
+}
+
+.boton-close{
+    text-align: center;
+    color: red;
+}

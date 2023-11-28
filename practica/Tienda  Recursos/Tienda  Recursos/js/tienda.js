@@ -67,7 +67,7 @@
 
 
 	function ponArticuloEnCarrito(id){
-		let articulo = listaArticulos.find(p=>p.codigo == id)
+		let articulo = listaArticulos.find(p => p.codigo == id)
 		carrito.anyadeArticulo(articulo)
 	}
 
