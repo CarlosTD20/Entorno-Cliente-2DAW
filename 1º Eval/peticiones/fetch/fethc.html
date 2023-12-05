@@ -134,7 +134,7 @@
     // get(url)
 
 
-    async function getCharacters(id){
+     async function getCharacters(id){
         try {
             let datos = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
             if (!datos.ok)
@@ -154,6 +154,21 @@
     }
 
     let id = prompt('Dime el id: ')
-    getCharacters(id)
+    getCharacters(id) 
+   
+   /* let name  = prompt('Dime el nombre del pokemon: ')
+    getProducts(name)
+
+    async function getProducts(name){
+        try{
+            let dProducts = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+            if(!dProducts.ok)
+                new Error('Error: ' +dProducts.status)
+            let products = await dProducts.json()
+            console.log(products)
+        } catch (error){
+            console.log(error)
+        }
+    } */
 </script>
 </html>
