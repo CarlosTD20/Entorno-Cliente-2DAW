@@ -1,0 +1,15 @@
+<!--
+    Con el "ng-container" lo que conseguimos es ahorrarnos el 
+    crear el elemento div y no hacer otra anidación.
+-->
+<!--Este div si esta el prodcuto lo renderiza-->
+<ng-container *ngIf="product">
+    <h2>{{product.title}}</h2>
+    <p>{{product.price}} €</p>
+    <img  [src]="product.images[0]" >
+</ng-container>
+
+<!--Este div si no esta el prodcuto no lo renderiza-->
+<ng-container *ngIf="!product">
+    <p>Producto no encontrado/renderizado</p>
+</ng-container>
