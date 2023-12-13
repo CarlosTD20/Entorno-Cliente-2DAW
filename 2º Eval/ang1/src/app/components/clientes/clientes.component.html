@@ -1,0 +1,10 @@
+<h1>Componente para la sección de Clientes</h1>
+
+<h2 *ngFor=" let nombre of nombres">{{ nombre }}</h2>
+
+<h2> Hola {{cliente1.nombre}} procedente de {{ cliente1.ciudad }}</h2>
+
+<h2>El segundo nombre es: {{ nombres[1] }}</h2>
+<h2>La segunda ciudad es: {{ ciudades[1] }}</h2>
+
+<h2>El segundo cliente es: {{ listaClientes[1].nombre }}, que tiene el id: {{  listaClientes[1].id }}, procedente de {{ listaClientes[1].ciudad }}</h2>
