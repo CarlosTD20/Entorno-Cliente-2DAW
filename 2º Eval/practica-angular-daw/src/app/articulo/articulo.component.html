@@ -2,7 +2,7 @@
   <h3>   (Interpolando datos de un array de objetos)</h3>
   <h3>   (Property binding disabled en boton)</h3>
 
-<div class="card" style="width: 18rem;">
+<div *ngFor="let articulo of articulos" class="card" style="width: 18rem;">
     <img src="assets/{{articulo.id}}.jpg" class="card-img-top">
     <div class="card-body">
       <h5 class="card-title">{{articulo.nombre}}</h5>
@@ -10,4 +10,4 @@
       <b><p class="card-text text-center">{{articulo.precio}}</p></b>
     </div>
     <button id="m1" class="btn btn-primary" [disabled]="botonActivo">comprar</button>
-  </div>
+</div>
