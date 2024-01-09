@@ -21,23 +21,62 @@
       <button id="{{ selectedArticulo.id}}" class="btn btn-danger" (click)="desactivar()">Desactivar </button>
     </div>
   </div>
+
+  <div>
+    <p>--------------------------------Seleccionar Articulo---------------------------------------</p>
+    <select name="" id="">
+      <option *ngFor="let articulo of articulos">{{ articulo.nombre }}</option>
+    </select>
+  </div>
+
 <div>
-  <p>--------------------------------Lista Completa de Artículos---------------------------------------</p>
-</div>
+  <p>--------------------------------Lista Completa de Artículos NG FOR---------------------------------------</p>
 
-<div class="row row-cols-1 row-cols-md-6 g-4 w-100">
-  <div *ngFor="let articulo of articulos" class="card " style="width: 18rem;">
-    <img src="assets/{{articulo.id}}.jpg" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">{{articulo.nombre}}</h5>
-      <p class="card-text">{{articulo.descripcion}}</p>
-      <b><p class="card-text text-center">{{articulo.precio}}</p></b>
-    </div>
-    <button id="m1" class="btn btn-primary" [disabled]="botonActivo">comprar</button>
-
-    <div>
-      <button id="{{ articulo.id}}" class="btn btn-primary" (click)="activar()">Activar </button>
-      <button id="{{ articulo.id}}" class="btn btn-danger" (click)="desactivar()">Desactivar </button>
+  <div class="row row-cols-1 row-cols-md-6 g-4 w-100">
+    <div *ngFor="let articulo of articulos" class="card" >
+      <img src="assets/{{articulo.id}}.jpg" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{articulo.nombre}}</h5>
+        <p class="card-text">{{articulo.descripcion}}</p>
+        <b><p class="card-text text-center">{{articulo.precio}}</p></b>
+      </div>
+      <button id="m1" class="btn btn-primary" [disabled]="botonActivo" (click)="comprarArticulo(articulo)">comprar</button>
     </div>
   </div>
+</div>
+
+<div>
+  <p>--------------------------------NG If---------------------------------------</p>
+
+
+</div>
+
+<div>
+  <p>--------------------------------NG Container---------------------------------------</p>
+
+  <h3 class="text-center">ng-container</h3>
+
+  <ng-container *ngIf="verC">
+    <p>AAAAAAA</p>
+  </ng-container>
+  
+
+  <button class="btn btn-primary" (click)="verContainer()">Ver</button>
+  <button class="btn btn-danger" (click)="ocultarContainer()">Ocultar</button>
+</div>
+
+<div>
+  <p>--------------------------------NG IF ELSE---------------------------------------</p>
+
+  <h3 class="text-center">ng if else</h3>
+
+  <div *ngIf="isLogged; else cerrado">
+    <p>Si estás logeado</p>
+  </div>
+
+  <ng-template #cerrado>
+    <div>
+      <p>No estás logeado</p>
+    </div>
+  </ng-template>
 </div>

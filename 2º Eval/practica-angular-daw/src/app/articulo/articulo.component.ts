@@ -13,13 +13,17 @@ export class ArticuloComponent {
 
   selectedArticulo : Articulo = this.articulos[3]
 
-  ngOnInit(){
-    console.log('ngOnInit...')
-    setTimeout(()=>{alert('BotonActivo')
-                  this.botonActivo = false},5000)
-  }
+  // ngOnInit(){
+  //   console.log('ngOnInit...')
+  //   setTimeout(()=>{alert('BotonActivo')
+  //                 this.botonActivo = false},5000)
+  // }
 
   botonActivo : boolean = true;
+  verD : Boolean = false
+  verC : Boolean = false
+  isLogged : boolean = false;
+
 
   activar() {
     this.botonActivo = false;
@@ -46,4 +50,15 @@ export class ArticuloComponent {
       }
     }
   }
+
+  comprarArticulo(articulo : Articulo) {
+    console.log(articulo.id)
+    }
+
+    ocultarContainer() {
+      this.verC = false
+    }
+    verContainer() {
+      this.verC =  true
+    }
 }
