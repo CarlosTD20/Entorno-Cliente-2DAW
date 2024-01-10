@@ -1,0 +1,8 @@
+<h2>Comunicación Padre-Hijo con *ngFor Bidereccional</h2>
+
+<div id="contenedor" class="row row-cols-1 row-cols-md-6 g-4">
+  <app-ejemplo4v5 *ngFor="let articulo of articulos"
+    [articulo]="articulo"
+    (borrarArticulo)="borrar($event)">
+  </app-ejemplo4v5>
+</div>

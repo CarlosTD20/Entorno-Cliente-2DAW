@@ -1,0 +1,93 @@
+<h2>Directiva *ngIf</h2>
+<br>
+<h3 class="text-center">*ngIf en div</h3>
+<button class="btn btn-danger" (click)="verDiv()">Ver</button> &nbsp;
+<button class="btn btn-primary" (click)="ocultarDiv()">Ocultar</button>
+<br>
+
+<div class="alert alert-danger" role="alert" *ngIf="verD">
+  A simple primary alert—check it out!
+</div>
+
+<br>
+<h3 class="text-center">*ngIf en ng-container</h3>
+<button class="btn btn-danger" (click)="verContainer()">Ver</button> &nbsp;
+<button class="btn btn-primary" (click)="ocultarContainer()">Ocultar</button>
+
+<ng-container *ngIf="verC">
+  <div class="alert alert-danger" role="alert">
+    A simple primary alert—check it out!
+  </div>
+  <div class="alert alert-primary" role="alert">
+    A simple primary alert—check it out!
+  </div>
+</ng-container>
+
+
+<br>
+<h3 class="text-center">*ngIf con else</h3>
+
+<div *ngIf="isLoggedIn; else loggedOut">
+  SI Estas logueado...
+</div>
+
+<ng-template #loggedOut>
+  NO estas logueado...
+</ng-template>
+
+<!-- Otra forma de hacerlo azucar sintactico -->
+<ng-template [ngIf]="isLoggedIn" [ngIfElse]="loggedOut">
+  <div>
+    SI Estas logueado...
+  </div>
+</ng-template>
+
+<ng-template #loggedOut>
+  <div>
+    NO estas logueado...
+  </div>
+</ng-template>
+
+
+<br>
+<h3 class="text-center">*ngSwitch</h3>
+<div [ngSwitch]="estadoCivil">
+  <div *ngSwitchCase="'casado'" class="alert alert-primary" role="alert">
+    Casado
+  </div>
+  <div *ngSwitchCase="'soltero'" class="alert alert-success" role="alert">
+    Soltero
+  </div>
+  <div *ngSwitchCase="'viudo'" class="alert alert-danger" role="alert">
+    Viudo
+  </div>
+</div>
+
+
+
+
+
+<br>
+<h3 class="text-center">*ngFor con *ngIf en boton</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Precio</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let articulo of articulos">
+      <th scope="row">{{articulo.id}}</th>
+      <td>{{articulo.nombre}}</td>
+      <td>{{articulo.descripcion}}</td>
+      <td>{{articulo.precio}}</td>
+      <td>
+        <button *ngIf="articulo.precio<500" class="btn btn-primary">Ver detalles</button>
+      </td>
+    </tr>
+</table>
+

@@ -1,0 +1,25 @@
+<h2>Comunicación Padre-Hijo</h2>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let articulo of articulos">
+            <td>{{articulo.nombre}}</td>
+            <td><button (click)="verArticulo(articulo)" class="btn btn-primary">Ver Articulo</button></td>
+          </tr>
+    </table>
+    </div>
+    <div class="col-sm-8">
+      <app-ejemplo4v1 [articulo]="articuloSeleccionado"></app-ejemplo4v1>
+    </div>
+  </div>
+</div>

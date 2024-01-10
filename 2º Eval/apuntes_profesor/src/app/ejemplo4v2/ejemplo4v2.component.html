@@ -1,0 +1,7 @@
+<h2>Comunicación Padre-Hijo con *ngFor</h2>
+
+<div id="contenedor" class="row row-cols-1 row-cols-md-6 g-4">
+  <app-ejemplo4v3 *ngFor="let articulo of articulos"
+    [articulo]="articulo">
+  </app-ejemplo4v3>
+</div>

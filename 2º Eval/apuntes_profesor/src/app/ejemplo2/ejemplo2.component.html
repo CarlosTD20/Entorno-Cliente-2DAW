@@ -1,0 +1,20 @@
+<h2>Event Binding</h2>
+<button (click)="seleccionarArticulo()" class="btn btn-success" >Seleccionar posicion articulo</button>
+
+<div class="card" style="width: 18rem;">
+  <img src="assets/{{articulo.id}}.jpg" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{articulo.nombre}}</h5>
+    <p class="card-text">{{articulo.descripcion}}</p>
+    <b><p class="card-text text-center">{{articulo.precio}}</p></b>
+  </div>
+  <button (click)="verArticulo(articulo)" class="btn btn-primary" >Comprar</button>
+</div>
+
+<hr>
+
+<h2>Two Way Data Binding</h2>
+Modifica dato de vista <input type="text" [(ngModel)]="dato">
+Interpolacion de la variable: {{dato}}
+<br>
+<button (click)="modificarDato()" class="btn btn-dark" >Modificar dato desde controlador</button>

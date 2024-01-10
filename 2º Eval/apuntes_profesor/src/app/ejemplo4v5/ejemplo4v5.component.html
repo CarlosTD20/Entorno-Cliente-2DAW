@@ -1,0 +1,11 @@
+<div class="card" *ngIf="articulo">
+  <img src="assets/{{articulo.id}}.jpg" >
+  <div class="card-body">
+    <h5 class="card-title">{{articulo.nombre}}</h5>
+    <p class="card-text">{{articulo.descripcion}}</p>
+    <b><p class="card-text text-center">{{articulo.precio}}</p></b>
+    <div class="card-text text-center">
+      <button (click)="borrar(articulo.id)" class="btn btn-danger">Borrar</button>
+  </div>
+  </div>
+</div>
