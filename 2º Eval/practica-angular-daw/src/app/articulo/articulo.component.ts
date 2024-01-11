@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ARTICULOS } from '../modelos/list-articulos';
 import { Articulo } from '../modelos/articulo';
+import { ArticulosService } from '../servicio/articulos.service';
 
 @Component({
   selector: 'app-articulo',
@@ -8,6 +9,18 @@ import { Articulo } from '../modelos/articulo';
   styleUrls: ['./articulo.component.css']
 })
 export class ArticuloComponent {
+
+  articulosServ !: Articulo[]
+
+  constructor( private servicioArticulos:ArticulosService){
+
+  }
+
+  ngOnInit(){
+    this.articulosServ=this.servicioArticulos.verArticulos()
+  }
+
+
 
   articulos = ARTICULOS
 
