@@ -1,8 +1,11 @@
-<h3 align="center">xxxx </h3><br>
+<h3 align="center">{{title}} </h3><br>
   <div class="row row-cols-1 row-cols-md-6">
-    <app-card-trabajador>      
+    <app-card-trabajador *ngFor="let trabajador of trabajadores"
+    [trabajadorhijo]=trabajador
+    (like)="sumaVoto($trabajador.id)"
+    >      
 	     <!-- Definir la etiqueta para incluir *ngFor, paso de datos a card-trabajador y recepción de eventos del hijo -->
-
+      
     </app-card-trabajador>
   </div>  
 

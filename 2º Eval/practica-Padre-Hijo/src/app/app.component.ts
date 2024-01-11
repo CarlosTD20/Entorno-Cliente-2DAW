@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TRABAJDORES } from './modelos/trabajadores';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,8 @@ export class AppComponent {
 //declarar la variable titulo
   
 
- //declarar la variable trabajadores array del tipo Trabajador
-
+//declarar la variable trabajadores array del tipo Trabajador
+  trabajadores = TRABAJDORES
 
  // metodo para borrar el trabajador pasado por id del array de trabajadores
  borrar(id:number){}

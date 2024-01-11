@@ -1,6 +1,6 @@
-import { trabajador } from "./trabajador";
+import { Trabajador } from "./trabajador";
 
-export const TRABAJDOR: trabajador[] = [
+export const TRABAJDORES: Trabajador[] = [
     {
       id:1,
       nombre: 'Ana',
