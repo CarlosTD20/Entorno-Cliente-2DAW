@@ -2,7 +2,9 @@
   <div class="row row-cols-1 row-cols-md-6">
     <app-card-trabajador *ngFor="let trabajador of trabajadores"
     [trabajadorhijo]=trabajador
-    (like)="sumaVoto($trabajador.id)"
+    (likeHijo)="sumaVoto($event)"
+    (unlikeHijo)="restaVoto($event)"
+    (borrarHijo)="borrar($event)"
     >      
 	     <!-- Definir la etiqueta para incluir *ngFor, paso de datos a card-trabajador y recepción de eventos del hijo -->
       
