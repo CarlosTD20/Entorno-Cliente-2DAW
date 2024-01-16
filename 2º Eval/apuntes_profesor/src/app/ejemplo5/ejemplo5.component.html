@@ -1,0 +1,58 @@
+<h3 class="text-center">Articulos desde Servicio</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Precio</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let articulo of articulos">
+      <th scope="row">{{articulo.id}}</th>
+      <td>{{articulo.nombre}}</td>
+      <td>{{articulo.descripcion}}</td>
+      <td>{{articulo.precio}}</td>
+      <td>
+        <button (click)="ver(articulo.id)" class="btn btn-primary">Ver </button>
+      </td>
+      <td>
+        <button (click)="borrar(articulo.id)" class="btn btn-danger">Borrar</button>
+      </td>
+    </tr>
+</table>
+
+<div class="alert alert-primary" role="alert" *ngIf="articuloSeleccionado">
+    <h3 class="text-center">Articulo seleccionado </h3>
+    <table>
+      <tr>
+        <td>id:</td>
+        <td><input type="text" [(ngModel)]="id" readonly> </td>
+      </tr>
+      <tr>
+        <td>npmbre:</td>
+        <td><input type="text" [(ngModel)]="nombre"> </td>
+      </tr>
+      <tr>
+        <td>descripcion:</td>
+        <td><input type="text" [(ngModel)]="descripcion"> </td>
+      </tr>
+      <tr>
+        <td>precio:</td>
+        <td><input type="text" [(ngModel)]="precio"> </td>
+      </tr>
+      <tr>
+
+      </tr>
+    </table>
+    <div class="text-center">
+      <button (click)="modificar()" class="btn btn-primary">Modificar articulo</button>&nbsp;
+      <button (click)="cancelar()" class="btn btn-success">Cancelar</button>
+    </div>
+
+</div>
+
+
+
