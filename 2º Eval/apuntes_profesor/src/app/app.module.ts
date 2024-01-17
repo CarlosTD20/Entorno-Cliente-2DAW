@@ -18,6 +18,10 @@ import { Ejemplo4v5Component } from './ejemplo4v5/ejemplo4v5.component';
 import { IndiceComponent } from './indice/indice.component';
 import { Ejemplo3v2Component } from './ejemplo3v2/ejemplo3v2.component';
 import { Ejemplo5Component } from './ejemplo5/ejemplo5.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { Ejemplo5Component } from './ejemplo5/ejemplo5.component';
     Ejemplo4v5Component,
     IndiceComponent,
     Ejemplo3v2Component,
-    Ejemplo5Component
+    Ejemplo5Component,
+    HeaderComponent,
+    FooterComponent,
+    InicioComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

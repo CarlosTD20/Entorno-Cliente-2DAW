@@ -9,9 +9,13 @@ import { Ejemplo4Component } from './ejemplo4/ejemplo4.component';
 import { Ejemplo4v2Component } from './ejemplo4v2/ejemplo4v2.component';
 import { Ejemplo4v4Component } from './ejemplo4v4/ejemplo4v4.component';
 import { Ejemplo5Component } from './ejemplo5/ejemplo5.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
-  { path: '', component: IndiceComponent },
+  { path: '', component: InicioComponent},
+  { path: 'indice', component: IndiceComponent },
+  { path: 'articulos', component: Ejemplo5Component },
   { path: 'ejemplo1', component: Ejemplo1Component },
   { path: 'ejemplo2', component: Ejemplo2Component },
   { path: 'ejemplo3', component: Ejemplo3Component },
@@ -19,7 +23,8 @@ const routes: Routes = [
   { path: 'ejemplo4', component: Ejemplo4Component },
   { path: 'ejemplo4v2', component: Ejemplo4v2Component },
   { path: 'ejemplo4v4', component: Ejemplo4v4Component },
-  { path: 'ejemplo5', component: Ejemplo5Component }
+  { path: 'ejemplo5', component: Ejemplo5Component },
+  { path: '**', component: ErrorComponent}
 ];
 
 @NgModule({
