@@ -1,0 +1,29 @@
+<div class="alert alert-primary" >
+    <h3 class="text-center">Articulo seleccionado </h3>
+    <table>
+      <tr>
+        <td>id:</td>
+        <td><input type="text" [(ngModel)]="id" readonly> </td>
+      </tr>
+      <tr>
+        <td>npmbre:</td>
+        <td><input type="text" [(ngModel)]="nombre"> </td>
+      </tr>
+      <tr>
+        <td>descripcion:</td>
+        <td><input type="text" [(ngModel)]="descripcion"> </td>
+      </tr>
+      <tr>
+        <td>precio:</td>
+        <td><input type="text" [(ngModel)]="precio"> </td>
+      </tr>
+      <tr>
+
+      </tr>
+    </table>
+    <div class="text-center">
+      <button (click)="modificar()" class="btn btn-primary">Modificar articulo</button>&nbsp;
+      <button routerLink="/articulos"  class="btn btn-success">Cancelar</button>
+    </div>
+
+</div>

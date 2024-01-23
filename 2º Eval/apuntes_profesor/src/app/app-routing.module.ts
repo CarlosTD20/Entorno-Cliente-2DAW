@@ -11,10 +11,16 @@ import { Ejemplo4v4Component } from './ejemplo4v4/ejemplo4v4.component';
 import { Ejemplo5Component } from './ejemplo5/ejemplo5.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ErrorComponent } from './error/error.component';
+import { NewArticleComponent } from './new-article/new-article.component';
+import { SeeArticleComponent } from './see-article/see-article.component';
+import { DeleteArticuloComponent } from './delete-articulo/delete-articulo.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent},
   { path: 'indice', component: IndiceComponent },
+  { path: 'delete/:id', component: DeleteArticuloComponent},
+  { path: 'verArticulos/:id', component: SeeArticleComponent},
+  { path: 'newArticle', component: NewArticleComponent},
   { path: 'articulos', component: Ejemplo5Component },
   { path: 'ejemplo1', component: Ejemplo1Component },
   { path: 'ejemplo2', component: Ejemplo2Component },

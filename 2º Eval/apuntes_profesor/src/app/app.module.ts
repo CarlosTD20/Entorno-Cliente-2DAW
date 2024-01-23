@@ -22,6 +22,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ErrorComponent } from './error/error.component';
+import { NewArticleComponent } from './new-article/new-article.component';
+import { SeeArticleComponent } from './see-article/see-article.component';
+import { DeleteArticuloComponent } from './delete-articulo/delete-articulo.component';
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import { ErrorComponent } from './error/error.component';
     HeaderComponent,
     FooterComponent,
     InicioComponent,
-    ErrorComponent
+    ErrorComponent,
+    NewArticleComponent,
+    SeeArticleComponent,
+    DeleteArticuloComponent
   ],
   imports: [
     BrowserModule,
