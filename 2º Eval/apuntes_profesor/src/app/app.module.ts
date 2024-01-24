@@ -25,6 +25,7 @@ import { ErrorComponent } from './error/error.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 import { SeeArticleComponent } from './see-article/see-article.component';
 import { DeleteArticuloComponent } from './delete-articulo/delete-articulo.component';
+import { FilterComponent } from './filter/filter.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { DeleteArticuloComponent } from './delete-articulo/delete-articulo.compo
     ErrorComponent,
     NewArticleComponent,
     SeeArticleComponent,
-    DeleteArticuloComponent
+    DeleteArticuloComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

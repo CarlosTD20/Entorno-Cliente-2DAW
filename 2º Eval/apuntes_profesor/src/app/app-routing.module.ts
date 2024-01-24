@@ -14,6 +14,7 @@ import { ErrorComponent } from './error/error.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 import { SeeArticleComponent } from './see-article/see-article.component';
 import { DeleteArticuloComponent } from './delete-articulo/delete-articulo.component';
+import { FilterComponent } from './filter/filter.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'delete/:id', component: DeleteArticuloComponent},
   { path: 'verArticulos/:id', component: SeeArticleComponent},
   { path: 'newArticle', component: NewArticleComponent},
+  { path: 'filter', component: FilterComponent},
   { path: 'articulos', component: Ejemplo5Component },
   { path: 'ejemplo1', component: Ejemplo1Component },
   { path: 'ejemplo2', component: Ejemplo2Component },
