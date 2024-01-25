@@ -1,0 +1,24 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Precio</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let articulo of articulos">
+        <th scope="row">{{articulo.id}}</th>
+        <td>{{articulo.nombre}}</td>
+        <td>{{articulo.descripcion}}</td>
+        <td>{{articulo.precio}}</td>
+        <!-- <td>
+          <button routerLink="/verArticulos/{{articulo.id}}" (click)="ver(articulo.id)" class="btn btn-primary">Ver </button>
+        </td>
+        <td>
+          <button routerLink="/delete/{{ articulo.id }}" class="btn btn-danger">Borrar</button>
+        </td> -->
+      </tr>
+  </table>

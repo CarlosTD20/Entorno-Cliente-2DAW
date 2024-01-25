@@ -26,6 +26,7 @@ import { NewArticleComponent } from './new-article/new-article.component';
 import { SeeArticleComponent } from './see-article/see-article.component';
 import { DeleteArticuloComponent } from './delete-articulo/delete-articulo.component';
 import { FilterComponent } from './filter/filter.component';
+import { ArticuloFiltradoComponent } from './articulo-filtrado/articulo-filtrado.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { FilterComponent } from './filter/filter.component';
     NewArticleComponent,
     SeeArticleComponent,
     DeleteArticuloComponent,
-    FilterComponent
+    FilterComponent,
+    ArticuloFiltradoComponent
   ],
   imports: [
     BrowserModule,

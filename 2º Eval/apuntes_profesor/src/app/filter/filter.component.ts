@@ -11,16 +11,16 @@ export class FilterComponent {
   constructor(
     private router:Router
   ){}
-  
-  orden!:string
+
   precio!:number
-
+  orden!:string
+  
   ver() {
-    console.log(this.orden)
-    console.log(this.precio)
+    // console.log(this.orden)
+    // console.log(this.precio)
 
-    this.router.navigate(["/articulos"],
-                          {queryParams:{orden:this.orden, precio:this.precio}}
+    this.router.navigate(["/articulosFiltrados"],
+                          {queryParams:{precio:this.precio, orden:this.orden}}
                         )
     }
 }
