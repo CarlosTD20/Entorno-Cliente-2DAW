@@ -16,6 +16,8 @@ import { SeeArticleComponent } from './see-article/see-article.component';
 import { DeleteArticuloComponent } from './delete-articulo/delete-articulo.component';
 import { FilterComponent } from './filter/filter.component';
 import { ArticuloFiltradoComponent } from './articulo-filtrado/articulo-filtrado.component';
+import { ClientesComponent } from './clientes/clientes.component';
+import { Guard1Guard } from './Guards/guard1.guard';
 
 const routes: Routes = [
   { path: '', component: InicioComponent},
@@ -26,6 +28,7 @@ const routes: Routes = [
   { path: 'filter', component: FilterComponent},
   { path: 'articulosFiltrados', component: ArticuloFiltradoComponent },
   { path: 'articulos', component: Ejemplo5Component },
+  { path: 'clientes',canActivate:[Guard1Guard], component:ClientesComponent },
   { path: 'ejemplo1', component: Ejemplo1Component },
   { path: 'ejemplo2', component: Ejemplo2Component },
   { path: 'ejemplo3', component: Ejemplo3Component },
