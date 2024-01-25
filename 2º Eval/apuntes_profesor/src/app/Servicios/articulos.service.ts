@@ -12,9 +12,7 @@ export class ArticulosService {
   articulos:Articulo[]=ARTICULOS
 
   filtrarArticulos(precio:number, orden:string){
-    let articulosFiltrados:Articulo[]=Array.from(this.articulos)
-    articulosFiltrados.filter(a => a.precio >= precio)
-
+    let articulosFiltrados = this.articulos.filter(a => a.precio >= precio)
     articulosFiltrados.sort((a,b) => a.precio-b.precio)
     return (orden == 'asc')? articulosFiltrados : articulosFiltrados.reverse()
   }
