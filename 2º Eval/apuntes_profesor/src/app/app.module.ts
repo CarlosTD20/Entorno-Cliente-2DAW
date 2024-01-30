@@ -28,6 +28,7 @@ import { DeleteArticuloComponent } from './delete-articulo/delete-articulo.compo
 import { FilterComponent } from './filter/filter.component';
 import { ArticuloFiltradoComponent } from './articulo-filtrado/articulo-filtrado.component';
 import { ClientesComponent } from './clientes/clientes.component';
+import { ErrorGuarraComponent } from './error-guarra/error-guarra.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { ClientesComponent } from './clientes/clientes.component';
     DeleteArticuloComponent,
     FilterComponent,
     ArticuloFiltradoComponent,
-    ClientesComponent
+    ClientesComponent,
+    ErrorGuarraComponent
   ],
   imports: [
     BrowserModule,

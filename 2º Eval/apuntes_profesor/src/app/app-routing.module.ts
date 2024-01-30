@@ -18,6 +18,7 @@ import { FilterComponent } from './filter/filter.component';
 import { ArticuloFiltradoComponent } from './articulo-filtrado/articulo-filtrado.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { Guard1Guard } from './Guards/guard1.guard';
+import { ErrorGuarraComponent } from './error-guarra/error-guarra.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'ejemplo4v2', component: Ejemplo4v2Component },
   { path: 'ejemplo4v4', component: Ejemplo4v4Component },
   { path: 'ejemplo5', component: Ejemplo5Component },
+  { path: 'errorg', component: ErrorGuarraComponent},
   { path: '**', component: ErrorComponent}
 ];
 

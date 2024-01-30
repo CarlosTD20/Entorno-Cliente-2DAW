@@ -1,15 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Articulo } from '../Modelos/articulo';
 import { ARTICULOS } from '../Modelos/mock-articulos';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticulosService {
 
-  constructor() { }
+  constructor(
+    private router:Router
+  ){}
 
   articulos:Articulo[]=ARTICULOS
+
+  acceder(){
+    let fecha:Date=new Date()
+      let hora=fecha.getHours()
+      if(hora>=10){
+        return true
+      }else{
+        return false
+      }
+  }
 
   filtrarArticulos(precio:number, orden:string){
     let articulosFiltrados = this.articulos.filter(a => a.precio >= precio)
