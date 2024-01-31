@@ -19,6 +19,7 @@ import { ArticuloFiltradoComponent } from './articulo-filtrado/articulo-filtrado
 import { ClientesComponent } from './clientes/clientes.component';
 import { Guard1Guard } from './Guards/guard1.guard';
 import { ErrorGuarraComponent } from './error-guarra/error-guarra.component';
+import { DetailClienteComponent } from './detail-cliente/detail-cliente.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'articulosFiltrados', component: ArticuloFiltradoComponent },
   { path: 'articulos', component: Ejemplo5Component },
   { path: 'clientes',canActivate:[Guard1Guard], component:ClientesComponent },
+  { path: 'detailCliente/:id', component:DetailClienteComponent },
   { path: 'ejemplo1', component: Ejemplo1Component },
   { path: 'ejemplo2', component: Ejemplo2Component },
   { path: 'ejemplo3', component: Ejemplo3Component },

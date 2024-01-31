@@ -17,7 +17,7 @@
       <td>{{articulo.descripcion}}</td>
       <td>{{articulo.precio}}</td>
       <td>
-        <button routerLink="/verArticulos/{{articulo.id}}" (click)="ver(articulo.id)" class="btn btn-primary">Ver </button>
+        <button routerLink="/verArticulos/{{articulo.id}}" class="btn btn-primary">Ver </button>
       </td>
       <td>
         <button routerLink="/delete/{{ articulo.id }}" class="btn btn-danger">Borrar</button>
@@ -25,7 +25,7 @@
     </tr>
 </table>
 
-<div class="alert alert-primary" role="alert" *ngIf="articuloSeleccionado">
+<!-- <div class="alert alert-primary" role="alert" *ngIf="articuloSeleccionado">
     <h3 class="text-center">Articulo seleccionado </h3>
     <table>
       <tr>
@@ -53,7 +53,7 @@
       <button (click)="cancelar()" class="btn btn-success">Cancelar</button>
     </div>
 
-</div>
+</div> -->
 
 
 

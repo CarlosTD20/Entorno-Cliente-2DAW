@@ -1,0 +1,19 @@
+{
+    "clientes": [
+        {
+            "id": 1,
+            "nombre": "Ana",
+            "cargo": "Programadora"
+        },
+        {
+            "id": 2,
+            "nombre": "Elena Martinez",
+            "cargo": "Administrativa Jefa"
+        },
+        {
+            "id": 3,
+            "nombre": "Juan",
+            "cargo": "Analista"
+        }
+    ]
+}

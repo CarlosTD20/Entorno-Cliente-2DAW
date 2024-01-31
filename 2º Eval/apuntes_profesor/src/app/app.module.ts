@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { Ejemplo1Component } from './ejemplo1/ejemplo1.component';
 import { Ejemplo2Component } from './ejemplo2/ejemplo2.component';
@@ -29,6 +31,7 @@ import { FilterComponent } from './filter/filter.component';
 import { ArticuloFiltradoComponent } from './articulo-filtrado/articulo-filtrado.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ErrorGuarraComponent } from './error-guarra/error-guarra.component';
+import { DetailClienteComponent } from './detail-cliente/detail-cliente.component';
 
 
 @NgModule({
@@ -57,12 +60,14 @@ import { ErrorGuarraComponent } from './error-guarra/error-guarra.component';
     FilterComponent,
     ArticuloFiltradoComponent,
     ClientesComponent,
-    ErrorGuarraComponent
+    ErrorGuarraComponent,
+    DetailClienteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

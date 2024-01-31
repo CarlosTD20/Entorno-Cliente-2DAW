@@ -17,7 +17,7 @@ export class ArticulosService {
   acceder(){
     let fecha:Date=new Date()
       let hora=fecha.getHours()
-      if(hora>=10){
+      if(hora>=8){
         return true
       }else{
         return false
