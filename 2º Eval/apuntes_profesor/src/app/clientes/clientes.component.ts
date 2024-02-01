@@ -17,16 +17,11 @@ export class ClientesComponent {
 
 
   ngOnInit(){
-    this.httpService.getClientes().subscribe(datos => {
-      console.log(datos)
-       this.clientes = datos
-    })
+    this.httpService.getClientes().subscribe(datos => this.clientes = datos )
   }
 
   ver(id: number) {
-    this.httpService.getClienteById(id).subscribe(datos => {
-      console.log(datos)
-    })
+    this.httpService.getClienteById(id).subscribe()
   }
       
 }
