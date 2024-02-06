@@ -11,13 +11,27 @@ export class ClientesComponent {
 
   clientes!: Clientes[];
 
+  mensaje:string=""
+  ok:boolean= true
+
   constructor(
     private httpService:ServicioHttpService
   ){}
 
 
   ngOnInit(){
-    this.httpService.getClientes().subscribe(datos => this.clientes = datos )
+    this.httpService.getClientes().subscribe(
+      datos => {
+        this.clientes = datos
+        this.ok=true
+      },
+      error =>{
+        if (error.status == 404){
+          this.ok = false
+          this.mensaje = 'ERROR. No existe la petición.'
+        }
+      } 
+    )
   }
 
   ver(id: number) {

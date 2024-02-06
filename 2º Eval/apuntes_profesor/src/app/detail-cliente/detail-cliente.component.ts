@@ -10,7 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetailClienteComponent {
 
-  detailCliente!:Clientes 
+  detailCliente: Clientes = {
+    id: 0,
+    nombre: '',
+    cargo: ''
+  }
 
   // id!:any
   // nombre!:string
@@ -18,14 +22,17 @@ export class DetailClienteComponent {
 
 
   constructor(
-    private httpService:ServicioHttpService,
-    private router:Router,
+    private httpService: ServicioHttpService,
+    private router: Router,
     private activateRouter: ActivatedRoute
-  ){}
+  ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     // this.id = this.activateRouter.snapshot.params['id']
-    this.activateRouter.params.subscribe(params => this.httpService.getClienteById(params['id']).subscribe(datos => this.detailCliente = datos))
+    this.activateRouter.params
+      .subscribe(params => this.httpService.getClienteById(params['id'])
+        .subscribe(datos => this.detailCliente = datos)
+      )
 
     //  this.httpService.getClienteById(this.id).subscribe(datos => {
     //   this.detailCliente = datos
