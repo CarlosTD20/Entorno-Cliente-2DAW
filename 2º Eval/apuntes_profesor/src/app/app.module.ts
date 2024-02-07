@@ -33,6 +33,8 @@ import { ArticuloFiltradoComponent } from './articulo-filtrado/articulo-filtrado
 import { ClientesComponent } from './clientes/clientes.component';
 import { ErrorGuarraComponent } from './error-guarra/error-guarra.component';
 import { DetailClienteComponent } from './detail-cliente/detail-cliente.component';
+import { NuevoclienteComponent } from './nuevocliente/nuevocliente.component';
+import { DeleteclienteComponent } from './deletecliente/deletecliente.component';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { DetailClienteComponent } from './detail-cliente/detail-cliente.componen
     ArticuloFiltradoComponent,
     ClientesComponent,
     ErrorGuarraComponent,
-    DetailClienteComponent
+    DetailClienteComponent,
+    NuevoclienteComponent,
+    DeleteclienteComponent
   ],
   imports: [
     BrowserModule,

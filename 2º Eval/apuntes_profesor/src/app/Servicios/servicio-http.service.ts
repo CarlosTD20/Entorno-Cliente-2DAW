@@ -47,8 +47,8 @@ export class ServicioHttpService {
       .pipe(retry(1))
   }
 
-  deleteClientes(): Observable<Clientes> {
-    return this.http.delete<Clientes>(this.url)
+  deleteClientes(cliente: Clientes): Observable<Clientes> {
+    return this.http.delete<Clientes>(this.url + `/${cliente.id}`)
       .pipe(retry(1))
   }
 }

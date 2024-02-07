@@ -1,0 +1,31 @@
+<div class="alert alert-primary">
+    <h3 class="text-center">Nuevo Cliente </h3>
+    <table>
+        <!-- <tr>
+            <td>Id:</td>
+             <td><input type="text" [(ngModel)]="id" readonly> </td> 
+            <td><input type="number" [(ngModel)]="neuvoCliente.id"> </td>
+        </tr> -->
+        <tr>
+            <td>Nombre: </td>
+            <!-- <td><input type="text" [(ngModel)]="nombre"> </td> -->
+            <td><input type="text" [(ngModel)]="neuvoCliente.nombre"> </td>
+        </tr>
+        <tr>
+            <td>Cargo: </td>
+            <!-- <td><input type="text" [(ngModel)]="cargo"> </td> -->
+            <td><input type="text" [(ngModel)]="neuvoCliente.cargo"> </td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+        {{ textoError }}
+    </div>
+
+    <div class="text-center">
+        <button (click)="guardar()" class="btn btn-primary">Guardar</button>&nbsp;
+        <button routerLink="/clientes" class="btn btn-success">Cancelar</button>
+    </div>
+</div>

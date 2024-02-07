@@ -1,0 +1,23 @@
+<div class="alert alert-primary">
+    <h2 class="text-center">Delete Cliente</h2>
+    
+    <table>
+        <tr>
+          <td>Id:</td>
+          <td><input type="text" [(ngModel)]="cliente.id" readonly> </td>
+        </tr>
+        <tr>
+          <td>Nombre: </td>
+          <td><input type="text" [(ngModel)]="cliente.nombre"> </td>
+        </tr>
+        <tr>
+          <td>Cargo: </td>
+          <td><input type="text" [(ngModel)]="cliente.cargo"> </td>
+        </tr>
+      </table>
+
+    <h3 >Desea borrar el articulo?</h3>
+
+    <button (click)="borrar()" class="btn btn-danger ">Borrar</button>
+    <button routerLink="/clientes" class="btn btn-success">Cancelar</button>
+</div>

@@ -24,12 +24,12 @@ export class DetailClienteComponent {
   constructor(
     private httpService: ServicioHttpService,
     private router: Router,
-    private activateRouter: ActivatedRoute
+    private activateRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
     // this.id = this.activateRouter.snapshot.params['id']
-    this.activateRouter.params
+    this.activateRoute.params
       .subscribe(params => this.httpService.getClienteById(params['id'])
         .subscribe(datos => this.detailCliente = datos)
       )
@@ -41,5 +41,10 @@ export class DetailClienteComponent {
     //   this.nombre = this.detailCliente.nombre
     //   this.cargo = this.detailCliente.cargo
     //  })
+  }
+
+  Modficar() {
+    this.httpService.putClientes(this.detailCliente)
+      .subscribe(datos => this.router.navigate(["/clientes"]))
   }
 }

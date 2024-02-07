@@ -1,5 +1,5 @@
 <h4>Listado de Clientes</h4>
-<br>
+<button class="btn btn-primary" routerLink="/nuevoCliente">Nuevo Cliente</button>
 <table class="table">
 <thead>
 <tr>
@@ -14,5 +14,6 @@
 <td>{{cliente.nombre}}</td>
 <td>{{cliente.cargo}}</td>
 <td><button class="btn btn-primary" routerLink="/detailCliente/{{ cliente.id }}">Ver</button></td>
+<td> <button routerLink="/deleteCliente/{{ cliente.id }}" class="btn btn-danger">Borrar</button></td>
 </tr>
 </tbody>
