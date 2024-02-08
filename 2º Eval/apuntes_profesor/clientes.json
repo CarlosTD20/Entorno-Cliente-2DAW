@@ -14,16 +14,6 @@
       "id": 3,
       "nombre": "Juan",
       "cargo": "Analista"
-    },
-    {
-      "id": 4,
-      "nombre": "peito",
-      "cargo": "grillo"
-    },
-    {
-      "id": 5,
-      "nombre": "cesguiro",
-      "cargo": "logongas"
     }
   ]
 }
