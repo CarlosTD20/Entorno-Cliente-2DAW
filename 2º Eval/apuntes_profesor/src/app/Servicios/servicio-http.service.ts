@@ -9,6 +9,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class ServicioHttpService {
 
   url: string = 'http://localhost:3000/clientes'
+  url2: string = 'http://localhost:8080/routines'
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
@@ -29,6 +30,11 @@ export class ServicioHttpService {
 
   getClientes(): Observable<Clientes[]> {
     return this.http.get<Clientes[]>(this.url)
+      .pipe(retry(1))
+  }
+
+  getExercise(): Observable<any> {
+    return this.http.get<any>(this.url2)
       .pipe(retry(1))
   }
 
