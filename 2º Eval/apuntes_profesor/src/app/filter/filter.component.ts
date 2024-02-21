@@ -9,18 +9,18 @@ import { Router } from '@angular/router';
 export class FilterComponent {
 
   constructor(
-    private router:Router
-  ){}
+    private router: Router
+  ) { }
 
-  precio!:number
-  orden!:string
-  
+  precio!: number
+  orden!: string
+
   ver() {
     // console.log(this.orden)
     // console.log(this.precio)
 
     this.router.navigate(["/articulosFiltrados"],
-                          {queryParams:{precio:this.precio, orden:this.orden}}
-                        )
-    }
+      { queryParams: { precio: this.precio, orden: this.orden } }
+    )
+  }
 }
