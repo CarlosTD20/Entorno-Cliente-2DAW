@@ -1,0 +1,11 @@
+<!-- HTML del componente finalizarTarea -->
+<div class="d-flex align-items-center justify-content-center" style="height: 400px;">
+    <div class="alert alert-info" role="alert">
+      <h3> Fin de la Tarea {{ detail.nombre }}  </h3>                                  <!-- Poner nombre de la tarea -->
+      <br>
+        <div class="text-center">
+        <button class="btn btn-danger bg" (click)="finalizar()">Finalizar</button> &nbsp;    <!-- Boton Finalizar tarea -->
+        <button class="btn btn-primary bg" routerLink="/tareas">Cancelar</button>           <!-- Boton para volver a tareas -->
+      </div>
+    </div>
+  </div>

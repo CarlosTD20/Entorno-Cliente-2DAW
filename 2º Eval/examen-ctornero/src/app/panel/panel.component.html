@@ -1,0 +1,20 @@
+<!--HTML para el componente padre panelTareas.component -->
+
+<br>
+<h3>Panel de Tareas</h3>
+
+<div class="row row-cols-1 row-cols-md-6 g-4">
+
+    <!--llamada al hijo tarea component por cada tarea disponible -->
+    <app-tarea *ngFor="let tarea of tareas"
+    [tarea]="tarea"
+    (borrarTarea)="borrar($event)"
+    >
+    </app-tarea>
+
+</div>
+
+<div class="text-center">
+    <button class="btn btn-primary text-center" routerLink="/tareas">Volver a Tareas</button>
+    <!--Boton para volver a tareas -->
+</div>
